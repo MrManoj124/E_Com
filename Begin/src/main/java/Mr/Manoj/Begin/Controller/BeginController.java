@@ -13,7 +13,7 @@ public class BeginController {
         return "Manorooban";
     }
 
-    @GetMapping("hello/age")
+    @GetMapping("age")
     String sayMyAge(){
         return "My Age is 23";
     }
