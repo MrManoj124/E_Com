@@ -13,12 +13,12 @@ public class BeginController {
         return "Manorooban";
     }
 
-    @GetMapping("age")
+    @GetMapping("/age")
     String sayMyAge(){
         return "My Age is 23";
     }
 
-    @GetMapping("hello/{id}")
+    @GetMapping("/{id}")
     String getById(){
         return "hello with Id";
     }
