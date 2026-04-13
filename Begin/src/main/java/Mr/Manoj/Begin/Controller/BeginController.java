@@ -14,4 +14,9 @@ public class BeginController {
     String getById(@PathVariable long id){
         return "hello with Id" + id;
     }
+
+    @GetMapping("/")
+    String getParamById(@RequestParam long id){
+        return "hello with Id" + id;
+    }
 }
