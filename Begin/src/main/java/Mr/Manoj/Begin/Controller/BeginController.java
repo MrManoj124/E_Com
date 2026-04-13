@@ -17,4 +17,9 @@ public class BeginController {
     String sayMyAge(){
         return "My Age is 23";
     }
+
+    @GetMapping("hello/{id}")
+    String getById(){
+        return "hello with Id";
+    }
 }
