@@ -15,6 +15,11 @@ public class BeginController {
         return "hello with Id" + id;
     }
 
+    @PostMapping("Postid")
+    String PostById(@RequestBody long id)
+    {
+
+    }
 
 
 
