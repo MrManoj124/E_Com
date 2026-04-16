@@ -15,8 +15,7 @@ public class BeginController {
         return "hello with Id" + id;
     }
 
-    @GetMapping("")
-    String getParamById(@RequestParam long id){
-        return "hello with Id" + id;
-    }
+
+
+
 }
