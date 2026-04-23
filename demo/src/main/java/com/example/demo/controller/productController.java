@@ -26,5 +26,6 @@ public class productController {
     }
 
     @DeleteMapping("/{id}")
+    public  String deleteProduct(@PathVariable int id)
 
 }
