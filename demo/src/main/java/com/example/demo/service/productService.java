@@ -18,5 +18,6 @@ public class productService {
     public List<product> getAllProduct(){
         return productList;
     }
+
 }
 
