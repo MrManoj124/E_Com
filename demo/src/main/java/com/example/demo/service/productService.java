@@ -9,7 +9,7 @@ import java.util.List;
 
 @Service
 public class productService {
-    private List<product> productList = new ArrayList<>();
+    private final List<product> productList = new ArrayList<>();
 
     public String addProduct(product Product){
         return "Successfully add product";
@@ -17,6 +17,15 @@ public class productService {
 
     public List<product> getAllProduct(){
         return productList;
+    }
+
+    public String deleteProduct(int id){
+        for (product p : productList){
+            if(p.getId() == id){
+                productList.remove(p);
+                return "Product deleted Successfully";
+            }
+        }
     }
 
 }
