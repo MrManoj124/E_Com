@@ -15,5 +15,7 @@ public class productService {
         return "Successfully add product";
     }
 
-
+    public List<product> getAllProduct(){
+        return productList;
+    }
 }
