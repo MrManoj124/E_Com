@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.service.productService;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,6 +16,7 @@ public class productController {
         this.ProductService=ProductService;
     }
 
-
+    @PostMapping
+   // public String addProduct(@RequestBody product Product)
 
 }
