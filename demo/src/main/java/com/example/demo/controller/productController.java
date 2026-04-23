@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.model.product;
 import com.example.demo.service.productService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,6 +18,8 @@ public class productController {
     }
 
     @PostMapping
-   // public String addProduct(@RequestBody product Product)
+    public String addProduct(@RequestBody product Product){
+        return ProductService.addProduct(Product);
+    }
 
 }
