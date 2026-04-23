@@ -25,4 +25,6 @@ public class productController {
         return ProductService.getAllProduct();
     }
 
+    @DeleteMapping("/{id}")
+
 }
