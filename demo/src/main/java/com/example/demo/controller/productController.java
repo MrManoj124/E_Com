@@ -2,10 +2,9 @@ package com.example.demo.controller;
 
 import com.example.demo.model.product;
 import com.example.demo.service.productService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/products")
@@ -20,6 +19,11 @@ public class productController {
     @PostMapping
     public String addProduct(@RequestBody product Product){
         return ProductService.addProduct(Product);
+    }
+
+    @GetMapping
+    public List<product> getAllProduct(){
+        return ProductService.getAllProduct();
     }
 
 }
