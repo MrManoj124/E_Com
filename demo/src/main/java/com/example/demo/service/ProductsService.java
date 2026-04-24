@@ -9,13 +9,13 @@ import java.util.List;
 @Service
 public class ProductsService {
 
-    private List<Products> ProductList = new ArrayList<>();
+    private final List<Products> ProductList = new ArrayList<>();
 
     public String addProduct(Products product){
         if(product.getSize() <= 0){
             return "Size must be greater than zero";
         }
-        Products.add(product);
+        ProductList.add(product);
         return "Size must be greater than zero";
     }
 
@@ -31,5 +31,10 @@ public class ProductsService {
             }
         }
         return "Product not found";
+    }
+
+    public String deleteAllProduct(){
+        ProductList.clear();
+        return "Delete all the Products";
     }
 }
