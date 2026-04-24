@@ -5,11 +5,11 @@ public class Products {
     private int id;
     private String name;
     private String type;
-    private String size;
+    private int size;
 
     public Products() {};
 
-    public Products(int id, String name, String type, String size){
+    public Products(int id, String name, String type, int size){
         this.id=id;
         this.name=name;
         this.type=type;
@@ -37,10 +37,10 @@ public class Products {
         this.type=type;
     }
 
-    public String getSize(){
+    public int getSize(){
         return size;
     }
-    public void setSize(String size){
+    public void setSize(int size){
         this.size=size;
     }
 }
