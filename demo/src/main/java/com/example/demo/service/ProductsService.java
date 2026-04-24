@@ -23,5 +23,13 @@ public class ProductsService {
         return ProductList;
     }
 
-
+    public String deleteProduct(int id){
+        for(Products p : ProductList){
+            if(p.getId() == id){
+                ProductList.remove(p);
+                return  "Product deleted successfully";
+            }
+        }
+        return "Product not found";
+    }
 }
