@@ -19,5 +19,9 @@ public class ProductsService {
         return "Size must be greater than zero";
     }
 
+    public List <Products> getAllProducts(){
+        return ProductList;
+    }
+
 
 }
