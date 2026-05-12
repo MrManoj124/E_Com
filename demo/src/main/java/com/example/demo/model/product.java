@@ -41,4 +41,6 @@ public class product {
     public void setQuantity(int quantity){
         this.quantity=quantity;
     }
+
+
 }
