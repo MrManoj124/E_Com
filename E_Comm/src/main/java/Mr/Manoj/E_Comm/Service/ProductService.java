@@ -13,9 +13,9 @@ public class ProductService {
     private List<Product> productList = new ArrayList<>();
 
     //Add Product
-    public String addProduct(Product product){
-        if(product.getQuantity() <= 0){
-            return  "Quantity must be greater than zero";
+    public String addProduct(Product product) {
+        if (product.getQuantity() <= 0) {
+            return "Quantity must be greater than zero";
         }
 
         productList.add(product);
@@ -25,5 +25,15 @@ public class ProductService {
     //Get All Products
     public List<Product> getProductList() {
         return productList;
+    }
+
+    // Get Product by ID
+    public Product getProductById(int id) {
+        for (Product p : productList) {
+            if (p.getId() == id) {
+                return p;
+            }
+        }
+        return  null;
     }
 }
