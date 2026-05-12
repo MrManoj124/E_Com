@@ -21,4 +21,9 @@ public class ProductService {
         productList.add(product);
         return "Product Added Successfully";
     }
+
+    //Get All Products
+    public List<Product> getProductList() {
+        return productList;
+    }
 }
