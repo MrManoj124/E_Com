@@ -11,9 +11,11 @@ public class product {
     private String name;
     private double price;
     private int quantity;
+    private int size;
 
     public product(){}
 
+    public int size
     public int getId(){
         return id;
     }
