@@ -51,4 +51,10 @@ public class ProductService {
         return "Product not found";
     }
 
+    // Delete All Products
+    public String deleteAllProducts() {
+        productList.clear();
+        return "All products deleted successfully";
+    }
+
 }
