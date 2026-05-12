@@ -11,11 +11,10 @@ public class product {
     private String name;
     private double price;
     private int quantity;
-    private int size;
 
     public product(){}
 
-    public int getSize(int Size) {this.size = size;}
+
     public int getId(){
         return id;
     }
@@ -43,6 +42,5 @@ public class product {
     public void setQuantity(int quantity){
         this.quantity=quantity;
     }
-
 
 }
