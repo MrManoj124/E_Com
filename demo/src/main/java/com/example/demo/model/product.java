@@ -15,7 +15,7 @@ public class product {
 
     public product(){}
 
-    public int size
+    public int getSize(int Size) {this.size = size;}
     public int getId(){
         return id;
     }
