@@ -1,4 +1,21 @@
 package Mr.Manoj.E_Comm.Model;
 
 public class Product {
+    private int id;
+    private String name;
+    private int quantity;
+    private double price;
+
+    //Default Constructor
+    public Product(){}
+
+    //Parameterized constructor
+    public Product(int id , String name, int quantity, double price){
+        this.id = id;
+        this.name = name;
+        this.quantity=quantity;
+        this.price=price;
+    }
+
+
 }
