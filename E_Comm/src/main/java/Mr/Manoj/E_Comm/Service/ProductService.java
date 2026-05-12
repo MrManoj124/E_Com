@@ -36,4 +36,19 @@ public class ProductService {
         }
         return  null;
     }
+
+    // Delete Product
+    public String deleteProduct(int id) {
+
+        boolean removed = productList.removeIf(
+                product -> product.getId() == id
+        );
+
+        if (removed) {
+            return "Product deleted successfully";
+        }
+
+        return "Product not found";
+    }
+
 }
