@@ -21,8 +21,12 @@ public class ProductController {
     private List<Product> Products = new ArrayList<>();
 
     // Sending or Posing the data
-    @PostMapping('/PostProduct')
+    @PostMapping('/addProduct')
     public String PostProduct(@RequestBody Product product01){
-
+        if(product01.getQuantity() < 0){
+            return "Quantity cannot be negative. cannot add the product";
+        }
+        productservice.addProduct(product01);
+        return "Successfully added the datas";
     }
 }
