@@ -3,7 +3,7 @@ package Mr.Manoj.E_Comm.Controller;
 
 // import Mr.Manoj.E_Comm.Model.Product;
 // import Mr.Manoj.E_Comm.Service.ProductService;
-import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -29,13 +29,13 @@ public class ProductController {
     }
 
     // Request Param
-    @GetMapping("")
+    @GetMapping("/request")
     String GreetingWithString(@RequestParam ("Requesting")long id){
         return "All are transparent with " + id + " here";
     }
 
     // Request Param username and password
-    @GetMapping("")
+    @GetMapping("/create")
     String UsernameWithPassword(@RequestParam String userId, String password){
         return "Username id is " + userId + " and Password is " + password;
     }
