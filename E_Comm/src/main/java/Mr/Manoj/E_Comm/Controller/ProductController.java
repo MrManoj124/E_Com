@@ -34,4 +34,10 @@ public class ProductController {
         return "All are transparent with " + id + " here";
     }
 
+    // Request Param username and password
+    @GetMapping("")
+    String UsernameWithPassword(@RequestParam String userId, String password){
+        return "Username id is " + userId + " and Password is " + password;
+    }
+
 }
