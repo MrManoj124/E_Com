@@ -34,10 +34,18 @@ public class ProductController {
         return "All are transparent with " + id + " here";
     }
 
+    /*
+    // fully wrong with data post and retrieval
     // Request Param username and password
+
     @GetMapping("/create")
     String UsernameWithPassword(@RequestParam String userId, String password){
         return "Username id is " + userId + " and Password is " + password;
     }
+    */
 
+    @PostMapping("/Insert")
+    String createUser(@RequestBody String body){
+        return body;
+    }
 }
