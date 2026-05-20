@@ -49,5 +49,8 @@ public class ProductController {
         return body;
     }
 
-
+    @PutMapping("/{id}")
+    String updateUser(@RequestBody long id){
+        return "Update the User with " + id ;
+    }
 }
