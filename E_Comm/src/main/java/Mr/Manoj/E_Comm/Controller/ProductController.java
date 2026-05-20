@@ -10,10 +10,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api") // Match all the below Mapping to do CRUD operations
 public class ProductController {
-    @GetMapping("/")
+    @GetMapping("/hello")
     String Greeting() {
         return "All are Welcome";
+    }
+
+    @GetMapping("/forYou")
+    String GreetingForyou() {
+        return "All are Welcome to my world";
     }
 
 }
