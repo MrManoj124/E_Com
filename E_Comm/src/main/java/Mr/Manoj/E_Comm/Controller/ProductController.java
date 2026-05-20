@@ -33,5 +33,16 @@ public class ProductController {
         return productservice.getProducts();
     }
 
-
+    // Delete the data
+    @DeleteMapping("/deleteProduct/{id}")
+    public String deleteProduct(@PathVariable int Id){
+        boolean removed = productService.deleteProductById(int Id){
+            if(removed){
+                return("Product deleted succesfully");
+            }
+            else{
+                return"Product not found.";
+            }
+        }
+    }
 }
