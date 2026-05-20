@@ -1,4 +1,4 @@
-package Mr.Manoj.E_Comm.Model;
+/* package Mr.Manoj.E_Comm.Model;
 
 public class Product {
     private int id;
@@ -52,3 +52,5 @@ public class Product {
     }
 
 }
+
+ */
