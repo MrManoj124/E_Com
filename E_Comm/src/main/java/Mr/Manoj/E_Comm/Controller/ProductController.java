@@ -22,4 +22,10 @@ public class ProductController {
         return "All are Welcome to my world";
     }
 
+    // Add path variable
+    @GetMapping("/{id}")
+    String GreetingWithId(@PathVariable long id){
+        return "Available on " + id;
+    }
+
 }
