@@ -25,7 +25,13 @@ public class ProductController {
     // Add path variable
     @GetMapping("/{id}")
     String GreetingWithId(@PathVariable long id){
-        return "Available on " + id;
+        return "Available on " + id + " Hours";
+    }
+
+    // Request Param
+    @GetMapping("")
+    String GreetingWithString(@RequestParam ("Requesting")long id){
+        return "All are transparent with " + id + " here";
     }
 
 }
