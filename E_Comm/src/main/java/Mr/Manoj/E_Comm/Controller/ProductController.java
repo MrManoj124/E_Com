@@ -54,7 +54,7 @@ public class ProductController {
         return "Update the User with " + id ;
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("/delete/{id}")
     String DeleteUser(@PathVariable long id){
         return "Delete the User with " + id;
     }
