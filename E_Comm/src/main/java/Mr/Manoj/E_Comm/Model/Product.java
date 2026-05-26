@@ -1,30 +1,41 @@
-/* package Mr.Manoj.E_Comm.Model;
+package Mr.Manoj.E_Comm.Model;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 public class Product {
-    private int id;
-    private String name;
-    private int quantity;
-    private double price;
 
-    //Default Constructor
-    public Product(){}
+    @Document(collection = "products")
+    public class Product {
 
+        @Id
+        private String productId;
+
+        private String productName;
+        private Double price;
+        private Integer stock;
+        private String description;
+
+        //Default Constructor
+        public Product() {
+        }
+    }
     //Parameterized constructor
-    public Product(int id , String name, int quantity, double price){
-        this.id = id;
-        this.name = name;
-        this.quantity=quantity;
-        this.price=price;
+    public Product(String productName , Double price, Integer stock, String description){
+        this.productName = productName;
+        this.price = price;
+        this.stock=stock;
+        this.description=description;
     }
 
     // Getters and Setters
 
     public int getId() {
-        return id;
+        return productName;
     }
 
     public String getName(){
-        return name;
+        return price;
     }
 
     public int getQuantity(){
@@ -32,25 +43,25 @@ public class Product {
     }
 
     public double getPrice(){
-        return price;
+        return description;
     }
 
-    public void setId(int id){
-        this.id=id;
+    public void setId(String id){
+        this.productName=productName;
     }
 
-    public void setName(String name){
-        this.name=name;
-    }
-
-    public void setQuantity(int quantity){
-        this.quantity=quantity;
-    }
-
-    public void setPrice(double price){
+    public void setName(Double price){
         this.price=price;
+    }
+
+    public void setQuantity(int stock){
+        this.stock=stock;
+    }
+
+    public void setPrice(String description){
+        this.description=description;
     }
 
 }
 
- */
+
