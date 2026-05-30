@@ -12,7 +12,7 @@ import java.util.List;
 public class ProductService {
     private List<Product> productList = new ArrayList<>();
 
-    /* //Add Product
+    //Add Product
     public String addProduct(Product product) {
         if (product.getQuantity() <= 0) {
             return "Quantity must be greater than zero";
@@ -22,7 +22,7 @@ public class ProductService {
         return "Product Added Successfully";
     }
 
-    //Get All Products
+    /* //Get All Products
     public List<Product> getProductList() {
         return productList;
     }
