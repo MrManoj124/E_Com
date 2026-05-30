@@ -22,7 +22,7 @@ public class ProductService {
         return "Product Added Successfully";
     }
 
-    /* //Get All Products
+     //Get All Products
     public List<Product> getProductList() {
         return productList;
     }
@@ -37,7 +37,7 @@ public class ProductService {
         return  null;
     }
 
-    // Delete Product
+    /* // Delete Product
     public String deleteProduct(int id) {
 
         boolean removed = productList.removeIf(
