@@ -37,7 +37,7 @@ public class ProductService {
         return  null;
     }
 
-    /* // Delete Product
+    // Delete Product
     public String deleteProduct(int id) {
 
         boolean removed = productList.removeIf(
