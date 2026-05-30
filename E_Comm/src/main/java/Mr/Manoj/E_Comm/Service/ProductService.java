@@ -1,9 +1,9 @@
-// package Mr.Manoj.E_Comm.Service;
+package Mr.Manoj.E_Comm.Service;
 
 
-// import Mr.Manoj.E_Comm.Model.Product;
+ import Mr.Manoj.E_Comm.Model.Product;
 import org.apache.tomcat.util.digester.ArrayStack;
-/* import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
 public class ProductService {
     private List<Product> productList = new ArrayList<>();
 
-    //Add Product
+    /* //Add Product
     public String addProduct(Product product) {
         if (product.getQuantity() <= 0) {
             return "Quantity must be greater than zero";
