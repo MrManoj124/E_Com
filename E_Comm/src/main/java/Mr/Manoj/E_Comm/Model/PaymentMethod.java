@@ -20,7 +20,38 @@ public class PaymentMethod {
         this.expiryDate=expiryDate;
     }
 
+    //getter and setter
+    public String getPaymentId(){
+        return paymentId;
+    }
 
+    public String getPaymentType(){
+        return paymentType;
+    }
+
+    public String getAccountNumber(){
+        return accountNumber;
+    }
+
+    public String getExpiryDate(){
+        return expiryDate;
+    }
+
+    public void setPaymentId(String paymentId){
+        this.paymentId=paymentId;
+    }
+
+    public void setPaymentType(String paymentType){
+        this.paymentType=paymentType;
+    }
+
+    public void setAccountNumber(String accountNumber){
+        this.accountNumber=accountNumber;
+    }
+
+    public void setExpiryDate(String expiryDate){
+        this.expiryDate=expiryDate;
+    }
 
 
 }
