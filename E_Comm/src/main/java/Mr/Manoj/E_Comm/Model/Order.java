@@ -21,8 +21,15 @@ public class Order {
 
         public Order(){}
 
-        public Order(Double totalAmount, String status, String customerEmail){
-
+        //Parameterized constructor
+        public Order(LocalDateTime orderDate, Double totalAmount, String status, String customerEmail) {
+                this.orderDate =orderDate;
+                this.totalAmount = totalAmount;
+                this.status = status;
+                this.customerEmail = customerEmail;
         }
+
+        // Getters and Setters
+
 
 }
