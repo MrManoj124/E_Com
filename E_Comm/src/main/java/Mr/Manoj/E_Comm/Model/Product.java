@@ -32,7 +32,25 @@ import java.time.LocalDateTime;
 
 
 
+    public LocalDateTime getorderDate(){
+            return orderDate;
+    }
 
+    public void setorderDate(LocalDateTime orderDate){
+            this.orderDate=orderDate;
+    }
+
+    public Double getTotalAmount(){
+            return  totalAmount;
+    }
+
+    public void status(String status){
+            this.status=status;
+    }
+
+    public String getCustomerEmail(){
+            return customerEmail;
+    }
 
 }
 
