@@ -20,37 +20,7 @@ import java.time.LocalDateTime;
         public Product() {
         }
 
-        //Parameterized constructor
-        public Product(LocalDateTime orderDate, Double totalAmount, String status, String customerEmail) {
-            this.orderDate =orderDate;
-            this.totalAmount = totalAmount;
-            this.status = status;
-            this.customerEmail = customerEmail;
-        }
 
-        // Getters and Setters
-
-
-
-    public LocalDateTime getorderDate(){
-            return orderDate;
-    }
-
-    public void setorderDate(LocalDateTime orderDate){
-            this.orderDate=orderDate;
-    }
-
-    public Double getTotalAmount(){
-            return  totalAmount;
-    }
-
-    public void status(String status){
-            this.status=status;
-    }
-
-    public String getCustomerEmail(){
-            return customerEmail;
-    }
 
 }
 
