@@ -43,4 +43,22 @@ public class CategoryService {
         }
         return "Category not found";
     }
+
+    public Category patchcat(String id, Category category){
+        Category existingcat = categoryrepo.findById(id).orElse(null);
+
+        if(existingcat == null){
+            return  null;
+        }
+
+        if(category.getCategoryName() != null){
+            existingcat.setCategoryName(category.getCategoryName());
+        }
+
+        if(category.getDescription() != null){
+            existingcat.setDescription(category.getDescription());
+        }
+
+        return categoryrepo.save(existingcat);
+    }
 }
