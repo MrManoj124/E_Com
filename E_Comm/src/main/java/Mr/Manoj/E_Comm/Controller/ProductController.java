@@ -1,40 +1,58 @@
 package Mr.Manoj.E_Comm.Controller;
 
-
-// import Mr.Manoj.E_Comm.Model.Product;
-// import Mr.Manoj.E_Comm.Service.ProductService;
-// import org.springframework.beans.factory.annotation.Autowired;
+import Mr.Manoj.E_Comm.Model.Product;
+import Mr.Manoj.E_Comm.Service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api") // Match all the below Mapping to do CRUD operations
+@RequestMapping("/products")// Match all the below Mapping to do CRUD operations
 public class ProductController {
-    @GetMapping("/hello")
-    String Greeting() {
-        return "All are Welcome";
+
+    @Autowired
+    private ProductService service;
+
+    // Create
+    @PostMapping
+    public Product addProduct(@RequestBody Product product){
+        return service.addProduct(product);
     }
 
-    @GetMapping("/forYou")
-    String GreetingForyou() {
-        return "All are Welcome to my world";
+    @GetMapping
+    public List<Product> getAllProducts(){
+        return service.getAllProducts();
     }
 
-    // Add path variable
     @GetMapping("/{id}")
-    String GreetingWithId(@PathVariable long id){
-        return "Available on " + id + " Hours";
+    public Product getProduct(@PathVariable String id){
+        return service.getProductById(id);
     }
 
-    // Request Param
-    @GetMapping("/request")
-    String GreetingWithString(@RequestParam ("Requesting")long id){
-        return "All are transparent with " + id + " here";
+    @PutMapping
+    public  Product updateProduct(@PathVariable String id, @RequestBody Product product){
+        return service.updateProduct(id, product);
     }
 
-    /*
+    @PatchMapping
+    public Product patchProduct(@PathVariable String id, @RequestBody Product product){
+        return service.patchProduct(id, product);
+    }
+
+    @DeleteMapping
+    public String deleteProduct(@PathVariable String id){
+        return service.deleteProduct(id);
+    }
+}
+
+
+
+
+
+
+
+/*
     // fully wrong with data post and retrieval
     // Request Param username and password
 
@@ -43,19 +61,3 @@ public class ProductController {
         return "Username id is " + userId + " and Password is " + password;
     }
     */
-
-    @PostMapping("/Insert")
-    String createUser(@RequestBody String body){
-        return body;
-    }
-
-    @PutMapping("/update/{id}")
-    String updateUser(@PathVariable long id){
-        return "Update the User with " + id ;
-    }
-
-    @DeleteMapping("/delete/{id}")
-    String DeleteUser(@PathVariable long id){
-        return "Delete the User with " + id;
-    }
-}
