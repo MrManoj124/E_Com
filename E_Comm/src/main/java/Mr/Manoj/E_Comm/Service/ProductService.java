@@ -13,15 +13,13 @@ import java.util.Optional;
 @Service
 public class ProductService {
     @Autowired
-    private ProductRepository productRepo;
+    private final ProductRepository productRepo;
+
+    public ProductService(ProductRepository productRepo){
+        this.productRepo=productRepo;
+    }
 
     public Product addProduct(Product product){
-        if(product.getPrice() == null && product.getPrice() < 0){
-            throw new IllegalArgumentException("Product price cannot be negative") ;
-        }
-        if(product.getStock()<0){
-            throw new IllegalArgumentException("Product stock cannot be negative or empty") ;
-        }
         return productRepo.save(product);
     }
 
@@ -32,11 +30,7 @@ public class ProductService {
 
     //FindById
     public Product getProductById(String id){
-       Optional<Product> product=productRepo.findById(id);
-       if(product.isPresent()){
-           return product.get();
-       }
-       return null;
+        return productRepo.findById(id).orElse(null);
     }
 
     //Update products / PUT
@@ -87,7 +81,6 @@ public class ProductService {
         if(product.getDescription() != null){
             existingProduct.setDescription(product.getDescription());
         }
-
         return productRepo.save(existingProduct);
     }
 }
