@@ -11,13 +11,17 @@ import java.time.LocalDateTime;
         @Id
         private String productId;
 
-        private LocalDateTime orderDate;
-        private Double totalAmount;
-        private String status;
-        private String customerEmail;
+        private String productName;
+        private Double price;
+        private int stock;
+        private String description;
 
-        //Default Constructor
-        public Product() {
+        //prameterized constructor
+        public Product(String productName, Double price, int stock, String description){
+            this.productName=productName;
+            this.price=price;
+            this.stock=stock;
+            this.description=description;
         }
 
 
