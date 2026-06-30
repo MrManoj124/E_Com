@@ -27,6 +27,14 @@ import java.time.LocalDateTime;
             this.description=description;
         }
 
+        public String getProductId(){
+            return productId;
+        }
+
+        public  void setProductId(String productId){
+            this.productId=productId;
+        }
+
         public String getProductName(){
             return productName;
         }
