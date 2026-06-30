@@ -16,6 +16,9 @@ import java.time.LocalDateTime;
         private int stock;
         private String description;
 
+        //  Default Parameter
+        public Product(){}
+
         //prameterized constructor
         public Product(String productName, Double price, int stock, String description){
             this.productName=productName;
