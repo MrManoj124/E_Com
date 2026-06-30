@@ -5,9 +5,6 @@ import Mr.Manoj.E_Comm.Repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
-
 @Service
 public class CategoryService {
     @Autowired
@@ -17,7 +14,7 @@ public class CategoryService {
         this.categoryrepo=categoryRepo;
     }
 
-    public Category postcat(Category category){
+    public Category postCat(Category category){
         return categoryrepo.save(category);
     }
 
