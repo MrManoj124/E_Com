@@ -1,61 +1,93 @@
 package Mr.Manoj.E_Comm.Service;
 
 
- import Mr.Manoj.E_Comm.Model.Product;
-import org.apache.tomcat.util.digester.ArrayStack;
+import Mr.Manoj.E_Comm.Model.Product;
+import Mr.Manoj.E_Comm.Repository.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService {
-    private List<Product> productList = new ArrayList<>();
+    @Autowired
+    private ProductRepository productRepo;
 
-    //Add Product
-    public String addProduct(Product product) {
-        if (product.getQuantity() <= 0) {
-            return "Quantity must be greater than zero";
+    public Product addProduct(Product product){
+        if(product.getPrice() == null && product.getPrice() < 0){
+            throw new IllegalArgumentException("Product price cannot be negative") ;
         }
-
-        productList.add(product);
-        return "Product Added Successfully";
-    }
-
-     //Get All Products
-    public List<Product> getProductList() {
-        return productList;
-    }
-
-    // Get Product by ID
-    public Product getProductById(int id) {
-        for (Product p : productList) {
-            if (p.getId() == id) {
-                return p;
-            }
+        if(product.getStock()<0){
+            throw new IllegalArgumentException("Product stock cannot be negative or empty") ;
         }
-        return  null;
+        return productRepo.save(product);
     }
 
-    // Delete Product
-    public String deleteProduct(int id) {
+    // FindAll products
+    public List<Product> getAllProducts(){
+        return productRepo.findAll();
+    }
 
-        boolean removed = productList.removeIf(
-                product -> product.getId() == id
-        );
+    //FindById
+    public Product getProductById(String id){
+       Optional<Product> product=productRepo.findById(id);
+       if(product.isPresent()){
+           return product.get();
+       }
+       return null;
+    }
 
-        if (removed) {
+    //Update products / PUT
+    public Product updateProduct(String id, Product newProduct){
+        Product product=getProductById(id);
+        if(product != null){
+            product.setProductName(newProduct.getProductName());
+            product.setPrice(newProduct.getPrice());
+            product.setStock(newProduct.getStock());
+            product.setDescription(newProduct.getDescription());
+
+            return productRepo.save(product);
+        }
+        return null;
+    }
+
+    //delete by id
+    public String deleteProduct(String id){
+        Product product = getProductById(id);
+
+        if(product != null){
+            productRepo.deleteById(id);
             return "Product deleted successfully";
         }
-
-        return "Product not found";
+        return ("Product not found");
     }
 
-    // Delete All Products
-    public String deleteAllProducts() {
-        productList.clear();
-        return "All products deleted successfully";
-    }
+    // Patch operation
+    public Product patchProduct(String id, Product product){
+        Product existingProduct = productRepo.findById(id).orElse(null);
 
+        if(existingProduct == null){
+            return null;
+        }
+
+        if(product.getProductName() != null){
+            existingProduct.setProductName(product.getProductName());
+        }
+
+        if(product.getPrice() > 0){
+            existingProduct.setPrice(product.getPrice());
+        }
+
+        if(product.getStock() > 0){
+            existingProduct.setStock(product.getStock());
+        }
+
+        if(product.getDescription() != null){
+            existingProduct.setDescription(product.getDescription());
+        }
+
+        return productRepo.save(existingProduct);
+    }
 }
-*/
