@@ -30,6 +30,13 @@ public class Order {
         }
 
         // Getters and Setters
+        public String getOrderId(){
+                return orderId;
+        }
+
+        public void setOrderId(String orderId){
+                this.orderId=orderId;
+        }
         public LocalDateTime getorderDate(){
                 return orderDate;
         }
