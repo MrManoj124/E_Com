@@ -30,9 +30,6 @@ public class Order {
         }
 
         // Getters and Setters
-
-
-
         public LocalDateTime getorderDate(){
                 return orderDate;
         }
@@ -51,6 +48,10 @@ public class Order {
 
         public String getCustomerEmail(){
                 return customerEmail;
+        }
+
+        public void setCustomerEmail(String customerEmail){
+                this.customerEmail=customerEmail;
         }
 
 }
