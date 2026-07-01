@@ -46,4 +46,55 @@ public class OrderService {
         order.setProducts(fullProducts);
         order.settotalAmount(total);
     }
+
+    public Order getOrderById(String id){
+        return orderRepo.findById(id).orElse(null);
+    }
+
+    public Order updateOrder(String id, Order order){
+        Order existing = orderRepo.findById(id).orElse(null);
+
+        if(existing != null){
+            existing.setorderDate(order.getorderDate());
+            if(order.getStatus().equals("PENDING")
+            || order.getStatus().equals("CONFIRMED")
+            || order.getStatus().equals("SHIPPED)"
+            || order.getStatus().equals("DELIVERED")){
+                existing.setStatus(order.getStatus());
+            }
+
+            existing.setCustomerEmail(order.getCustomerEmail());
+            existing.setTotalAmount(order.getTotalAmount());
+        }
+    }
+
+    public Order patchOrder(String id, Order order){
+        Order existing = orderRepo.findById(id).orElse(null);
+
+        if(existing != null){
+            if(order.getorderDate() != null){
+                existing.setorderDate(order.getorderDate());
+            }
+
+            if(order.getTotalAmount() > 0){
+                existing.setTotalAmount(order.getTotalAmount());
+            }
+
+            if(order.getCustomerEmail() != null){
+                existing.setCustomerEmail(order.getCustomerEmail());
+            }
+
+            if(order.getStatus() != null){
+                existing.setStatus(order.getStatus());
+            }
+
+            return  orderRepo.save(existing);
+        }
+        return null;
+    }
+
+    public  String deleteOrder(String id){
+        orderRepo.deleteById(id);
+        return "Delete Order Successfully";
+    }
 }
