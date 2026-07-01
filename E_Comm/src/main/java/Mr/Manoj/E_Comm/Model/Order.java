@@ -65,5 +65,20 @@ public class Order {
                 this.customerEmail=customerEmail;
         }
 
+        public List<Product> getProducts(){
+                return products;
+        }
+
+        public List<PaymentMethod> getPaymentMethods(){
+                return paymentMethods;
+        }
+
+        public void setProducts(List<Product> products){
+                this.products=products;
+        }
+
+        public void setPaymentMethods(List<PaymentMethod> paymentMethods){
+                this.paymentMethods=paymentMethods;
+        }
 
 }
