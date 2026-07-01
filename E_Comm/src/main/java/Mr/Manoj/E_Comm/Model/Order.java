@@ -1,6 +1,7 @@
 package Mr.Manoj.E_Comm.Model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
@@ -13,20 +14,23 @@ public class Order {
         private String orderId;
 
         private LocalDateTime orderDate;
-        private Double totalAmount;
+        private Double TotalAmount;
         private String status;
         private String customerEmail;
 
+        @DBRef
         private List<Product> products;
+
+        @DBRef
         private List<PaymentMethod> paymentMethods;
 
         public Order(){}
 
         //Parameterized constructor
-        public Order(LocalDateTime orderDate, Double totalAmount, String status, String customerEmail,
+        public Order(LocalDateTime orderDate, Double TotalAmount, String status, String customerEmail,
                      List<Product> products, List<PaymentMethod> paymentMethods) {
                 this.orderDate =orderDate;
-                this.totalAmount = totalAmount;
+                this.TotalAmount = TotalAmount;
                 this.status = status;
                 this.customerEmail = customerEmail;
                 this.products = products;
@@ -50,7 +54,7 @@ public class Order {
         }
 
         public Double getTotalAmount(){
-                return  totalAmount;
+                return  TotalAmount;
         }
 
         public void status(String status){
@@ -67,6 +71,9 @@ public class Order {
 
         public List<Product> getProducts(){
                 return products;
+        }
+        public void setTotalAmount(Double TotalAmount){
+                this.TotalAmount=TotalAmount;
         }
 
         public List<PaymentMethod> getPaymentMethods(){
