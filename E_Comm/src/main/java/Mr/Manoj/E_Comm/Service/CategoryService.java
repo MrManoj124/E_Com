@@ -5,6 +5,8 @@ import Mr.Manoj.E_Comm.Repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CategoryService {
     @Autowired
@@ -14,7 +16,7 @@ public class CategoryService {
         this.categoryRepo=categoryRepo;
     }
 
-    public String getAllCategories(){
+    public List<Category> getAll(){
         return categoryRepo.findAll();
     }
 
