@@ -14,6 +14,10 @@ public class CategoryService {
         this.categoryrepo=categoryRepo;
     }
 
+    public String getAllCategories(){
+        return categoryrepo.findAll();
+    }
+
     public Category postCat(Category category){
         return categoryrepo.save(category);
     }
