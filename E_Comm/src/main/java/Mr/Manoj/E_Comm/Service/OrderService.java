@@ -1,4 +1,4 @@
-/* package Mr.Manoj.E_Comm.Service;
+package Mr.Manoj.E_Comm.Service;
 
 import Mr.Manoj.E_Comm.Model.Order;
 import Mr.Manoj.E_Comm.Model.Product;
@@ -6,6 +6,8 @@ import Mr.Manoj.E_Comm.Repository.OrderRepository;
 import Mr.Manoj.E_Comm.Repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -23,68 +25,25 @@ public class OrderService {
     }
 
 
-    public Order postOrder(Order order){
-        double total = calculateTotal(order.getProducts());
-        order.setTotalAmount(total);
-
-        return orderRepo.save(order);
-    }
-
-    public double calculateTotal(List<Product> products){
+    public Order saveOrder(Order order){
+        List<Product> fullProducts = new ArrayList<>();
         double total = 0;
-        for (Product product : products);
-        total += products.getPrice();
 
+        for(Product p : order.getProducts()){
+            Product dbProduct = productRepo.findById(p.getProductId()).orElse(null);
+
+            if(dbProduct == null){
+                return  null;
+            }
+
+            fullProducts.add(dbProduct);
+            total += dbProduct.getPrice();
+        }
         if(total > 5000){
-            total = total - (total - 0.10);
-        }
-        return total;
-    }
-
-    public List<Order> getAllOrders(){
-        return orderRepo.findAll();
-    }
-
-    public Order getOrderById(String id){
-        return orderRepo.findById(id).orElse(null);
-    }
-
-    public String updateOrder(String id, Order newOrder){
-        Order existOrder=getOrderById(id);
-        if(existOrder != null){
-            existOrder.setCustomerEmail(newOrder.getCustomerEmail());
-            existOrder.setorderDate(newOrder.getorderDate());
-
-            return orderRepo.save(existOrder);
-        }
-        return null;
-    }
-
-    public Order deleteOrder(String id){
-        Order order = orderRepo.getOrderById(id);
-        if(order != null){
-            orderRepo.deleteById(id);
-            return "Order deleted Successfully";
-        }
-        return "Order is null";
-    }
-
-    public Order patchOrder(String id, Order order){
-        Order existingOrder = orderRepo.findById(id).orElse(null);
-
-        if(existingOrder != null){
-            return null;
+            total = total * 0.9;
         }
 
-        if(existingOrder.getCustomerEmail() != null){
-            existingOrder.setCustomerEmail(order.getCustomerEmail());
-        }
-
-        if(existingOrder.getorderDate() != null){
-            existingOrder.setorderDate(order.getorderDate());
-        }
-
-        return orderRepo.save(existingOrder);
+        order.setProducts(fullProducts);
+        order.settotalAmount(total);
     }
 }
-*/
