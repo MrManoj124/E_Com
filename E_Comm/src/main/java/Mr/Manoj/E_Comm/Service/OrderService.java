@@ -21,6 +21,7 @@ public class OrderService {
         this.orderRepo=orderRepo;
     }
 
+
     public Order postOrder(Order order){
         double total = calculateTotal(order.getProducts());
         order.setTotalAmount;
@@ -31,7 +32,7 @@ public class OrderService {
     public double calculateTotal(List<Product> products){
         double total = 0;
         for (Product product : products);
-        total += product.getPrice();
+        total += products.getPrice();
 
         if(total > 5000){
             total = total - (total - 0.10);
