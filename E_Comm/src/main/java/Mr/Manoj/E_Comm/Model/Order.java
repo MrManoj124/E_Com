@@ -18,15 +18,19 @@ public class Order {
         private String customerEmail;
 
         private List<Product> products;
+        private List<PaymentMethod> paymentMethods;
 
         public Order(){}
 
         //Parameterized constructor
-        public Order(LocalDateTime orderDate, Double totalAmount, String status, String customerEmail) {
+        public Order(LocalDateTime orderDate, Double totalAmount, String status, String customerEmail,
+                     List<Product> products, List<PaymentMethod> paymentMethods) {
                 this.orderDate =orderDate;
                 this.totalAmount = totalAmount;
                 this.status = status;
                 this.customerEmail = customerEmail;
+                this.products = products;
+                this.paymentMethods = paymentMethods;
         }
 
         // Getters and Setters
@@ -60,5 +64,6 @@ public class Order {
         public void setCustomerEmail(String customerEmail){
                 this.customerEmail=customerEmail;
         }
+
 
 }
