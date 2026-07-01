@@ -1,4 +1,4 @@
-package Mr.Manoj.E_Comm.Service;
+/* package Mr.Manoj.E_Comm.Service;
 
 import Mr.Manoj.E_Comm.Model.Order;
 import Mr.Manoj.E_Comm.Model.Product;
@@ -17,14 +17,15 @@ public class OrderService {
     @Autowired
     private final OrderRepository orderRepo;
 
-    public OrderService(OrderRepository orderRepo){
+    public OrderService(OrderRepository orderRepo, ProductRepository productRepo){
         this.orderRepo=orderRepo;
+        this.productRepo=productRepo;
     }
 
 
     public Order postOrder(Order order){
         double total = calculateTotal(order.getProducts());
-        order.setTotalAmount;
+        order.setTotalAmount(total);
 
         return orderRepo.save(order);
     }
@@ -86,3 +87,4 @@ public class OrderService {
         return orderRepo.save(existingOrder);
     }
 }
+*/
