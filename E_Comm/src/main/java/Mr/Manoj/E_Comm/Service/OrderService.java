@@ -51,6 +51,10 @@ public class OrderService {
         return orderRepo.findById(id).orElse(null);
     }
 
+    public List<Order> getAllOrder(){
+        return orderRepo.findAll();
+    }
+
     public Order updateOrder(String id, Order order){
         Order existing = orderRepo.findById(id).orElse(null);
 
