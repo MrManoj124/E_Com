@@ -8,45 +8,45 @@ import org.springframework.stereotype.Service;
 @Service
 public class CategoryService {
     @Autowired
-    private final CategoryRepository categoryrepo;
+    private final CategoryRepository categoryRepo;
 
     public CategoryService(CategoryRepository categoryRepo){
-        this.categoryrepo=categoryRepo;
+        this.categoryRepo=categoryRepo;
     }
 
     public String getAllCategories(){
-        return categoryrepo.findAll();
+        return categoryRepo.findAll();
     }
 
     public Category postCat(Category category){
-        return categoryrepo.save(category);
+        return categoryRepo.save(category);
     }
 
     public Category getById(String id) {
-        return categoryrepo.findById(id).orElse(null);
+        return categoryRepo.findById(id).orElse(null);
     }
 
     public Category update(String id, Category category){
-        Category existing = categoryrepo.findById(id).orElse(null);
+        Category existing = categoryRepo.findById(id).orElse(null);
         if(existing != null){
             existing.setCategoryName(category.getCategoryName());
             existing.setDescription(category.getDescription());
-            return categoryrepo.save(existing);
+            return categoryRepo.save(existing);
         }
         return null;
     }
 
     public String delete(String id){
-        Category existing = categoryrepo.findById(id).orElse(null);
+        Category existing = categoryRepo.findById(id).orElse(null);
         if(existing != null){
-            categoryrepo.deleteById(id);
+            categoryRepo.deleteById(id);
             return "Category deleted Succesfully";
         }
         return "Category not found";
     }
 
     public Category patchcat(String id, Category category){
-        Category existingcat = categoryrepo.findById(id).orElse(null);
+        Category existingcat = categoryRepo.findById(id).orElse(null);
 
         if(existingcat == null){
             return  null;
@@ -60,6 +60,6 @@ public class CategoryService {
             existingcat.setDescription(category.getDescription());
         }
 
-        return categoryrepo.save(existingcat);
+        return categoryRepo.save(existingcat);
     }
 }
