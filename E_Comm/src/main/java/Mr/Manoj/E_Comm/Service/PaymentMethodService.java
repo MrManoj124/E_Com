@@ -58,9 +58,14 @@ public class PaymentMethodService {
                 existing.setExpiryDate(payment.getExpiryDate());
             }
 
-            return paymentRepo.save(existing);
+            return paymentRepo.save(existing    );
         }
         return null;
+    }
+
+    public String deletePayment(String id){
+        paymentRepo.deleteById(id);
+        return "Payment deleted Successfully";
     }
 
 }
